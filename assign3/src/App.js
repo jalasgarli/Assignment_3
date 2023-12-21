@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import ListOfFlashCards from './ListOfFlashCards'
+import './app.css'
 
 function App() {
   const [flashcards, setFlashCards] = useState(SAMPLE_FLASHCARDS);
@@ -11,12 +12,12 @@ function App() {
 const SAMPLE_FLASHCARDS = [
   {
     id: 1,
-    question: 'What is a capital of Azerbaijan?',
-    answer: 'Baku',
+    question: 'What is 2+2?',
+    answer: '4',
     options: [
-      'Rome',
-      'Baku',
-      'Istanbul'
+      '1',
+      '5',
+      '4'
     ]
   },
   {
