@@ -4,50 +4,25 @@ import './app.css'
 
 function App() {
   const [flashcards, setFlashCards] = useState(SAMPLE_FLASHCARDS);
-  const handleAddFlashCard = () => {
+  const handleAddFlashCard = (Question, Answer, Options) => {
     const newFlashcard = {
       id: flashcards.length + 1,
-      question: 'New Question',
-      answer: 'answer',
-      options: [
-        'answer 1',
-        'answer 2',
-        'answer 3'
-      ]
+      question: Question,
+      answer: Answer,
+      options: Options,
     };
     setFlashCards([...flashcards, newFlashcard]);
   }
-
-
     return (
       <div>
         <ListOfFlashCards flashcards={flashcards} />
-        <button onClick={handleAddFlashCard}>Add Flashcard</button>
+        <button onClick={() => handleAddFlashCard(
+          prompt('Enter the question:'),
+          prompt('Write Answer of Question'),
+          prompt('Enter options, separated by commas').split(',')
+        )}>Add Flashcard</button>
       </div>);
 }
-
-
-// function App() {
-//   const [flashcards, setFlashCards] = useState(SAMPLE_FLASHCARDS);
-
-//   const handleAddFlashCard = () => {
-//     const newFlashcard = {
-//       id: flashcards.length + 1,
-//       question: 'New Question',
-//       answer: 'New Answer',
-//       options: ['Option 1', 'Option 2', 'Option 3'],
-//     };
-
-//     setFlashCards([...flashcards, newFlashcard]);
-//   };
-
-//   return (
-//     <div>
-//       <ListOfFlashCards flashcards={flashcards} />
-//       <button onClick={handleAddFlashCard}>Add Flashcard</button>
-//     </div>
-//   );
-// }
 
 const SAMPLE_FLASHCARDS = [
   {
