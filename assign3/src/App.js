@@ -13,9 +13,15 @@ function App() {
     };
     setFlashCards([...flashcards, newFlashcard]);
   }
-    return (
+
+  const handleDeleteFlashCard = (id) => {
+    const deleteFlashCard = flashcards.filter((flashcard) => flashcard.id !== id);
+    setFlashCards(deleteFlashCard);
+  }
+
+  return (
       <div>
-        <ListOfFlashCards flashcards={flashcards} />
+        <ListOfFlashCards flashcards={flashcards} onDelete={handleDeleteFlashCard}/>
         <button onClick={() => handleAddFlashCard(
           prompt('Enter the question:'),
           prompt('Write Answer of Question'),

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 
-export default function FlashCard({flashcard}) {
+export default function FlashCard({flashcard, onDelete}) {
   const [flip, setflip] = useState(false);
+
+  const handleDelete = () => {
+    onDelete(flashcard.id);
+  }
 
   return (
     <div 
@@ -15,9 +19,11 @@ export default function FlashCard({flashcard}) {
             return <div className="flashcard-option">{option}</div>
           })}
         </div>
+        <button onClick={handleDelete}>Delete</button>
       </div>
-      <div className="back">{flashcard.answer}</div>
-
+      <div className="back">
+        {flashcard.answer}
+      </div>
     </div>
   )
 }

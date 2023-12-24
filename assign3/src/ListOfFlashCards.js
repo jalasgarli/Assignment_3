@@ -1,11 +1,14 @@
-import React from 'react'
-import FlashCard from './FlashCard'
+// ListOfFlashCards.js
 
-export default function ListOfFlashCards({flashcards}) {
+import React from 'react';
+import FlashCard from './FlashCard';
+
+export default function ListOfFlashCards({ flashcards, onDelete }) {
   return (
-    <div className='card-grid'>
-      {flashcards.map(flashcard => {
-        return <FlashCard flashcard = {flashcard} key={flashcard.id} />
-      })}</div>
-  )
+    <div className="card-grid">
+      {flashcards.map((flashcard) => (
+        <FlashCard flashcard={flashcard} key={flashcard.id} onDelete={onDelete} />
+      ))}
+    </div>
+  );
 }
