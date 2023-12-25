@@ -1,7 +1,5 @@
-// ListOfFlashCards.js
-
-import React from 'react';
-import FlashCard from './FlashCard';
+import React from "react";
+import FlashCard from "./FlashCard";
 
 export default function ListOfFlashCards({ flashcards, onDelete }) {
   return (
