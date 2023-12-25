@@ -1,12 +1,18 @@
-import React from "react";
-import FlashCard from "./FlashCard";
+import React from 'react';
+import FlashCard from './FlashCard';
 
-export default function ListOfFlashCards({ flashcards, onDelete }) {
+export default function ListOfFlashCards({ flashcards, onDelete, onEdit }) {
   return (
     <div className="card-grid">
       {flashcards.map((flashcard) => (
-        <FlashCard flashcard={flashcard} key={flashcard.id} onDelete={onDelete} />
+        <FlashCard
+          key={flashcard.id}
+          flashcard={flashcard}
+          onDelete={onDelete}
+          onEdit={onEdit}
+        />
       ))}
     </div>
   );
 }
+
