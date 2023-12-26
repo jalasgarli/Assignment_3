@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+// App.js
+
+import React, { useState, useEffect } from 'react';
 import ListOfFlashCards from './ListOfFlashCards';
 import './app.css';
 
 function App() {
-  const [flashcards, setFlashCards] = useState(SAMPLE_FLASHCARDS);
+  const [flashcards, setFlashCards] = useState([]);
+
+  useEffect(() => {
+    // Fetch cards from the endpoint
+    fetch('http://localhost:3000/cards')
+      .then((response) => response.json())
+      .then((data) => {
+        // Sort the cards by most recent modification
+        const sortedCards = data.sort((a, b) => b.modifiedAt - a.modifiedAt);
+        setFlashCards(sortedCards);
+      })
+      .catch((error) => console.error('Error fetching cards:', error));
+  }, []); // Empty dependency array ensures the effect runs only once
 
   const handleAddFlashCard = (Question, Answer, Options) => {
     const newFlashcard = {
@@ -11,13 +25,14 @@ function App() {
       question: Question,
       answer: Answer,
       options: Options,
+      modifiedAt: Date.now(), // Assuming you want to set the modification time when adding a new card
     };
     setFlashCards([...flashcards, newFlashcard]);
   };
 
   const handleDeleteFlashCard = (id) => {
-    const deleteFlashCard = flashcards.filter((flashcard) => flashcard.id !== id);
-    setFlashCards(deleteFlashCard);
+    const updatedFlashcards = flashcards.filter((flashcard) => flashcard.id !== id);
+    setFlashCards(updatedFlashcards);
   };
 
   const handleEditFlashCard = (editedFlashcard) => {
@@ -48,20 +63,5 @@ function App() {
     </div>
   );
 }
-
-const SAMPLE_FLASHCARDS = [
-  {
-    id: 1,
-    question: 'What is 2+2?',
-    answer: '4',
-    options: ['1', '5', '4'],
-  },
-  {
-    id: 2,
-    question: 'What is the capital of Turkey?',
-    answer: 'Ankara',
-    options: ['Ankara', 'Baku', 'Istanbul'],
-  },
-];
 
 export default App;
