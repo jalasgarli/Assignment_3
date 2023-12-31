@@ -17,13 +17,14 @@ function App() {
       .catch((error) => console.error('Error fetching cards:', error));
   }, []); 
 
-  const handleAddFlashCard = (Question, Answer, Options) => {
+  const handleAddFlashCard = (Question, Answer, Options, status) => {
     const newFlashcard = {
       id: flashcards.length + 1,
       question: Question,
       answer: Answer,
       options: Options,
-      modifiedAt: Date.now(), 
+      modifiedAt: Date.now(),
+      status: status,
     };
     setFlashCards([...flashcards, newFlashcard]);
   };
@@ -54,7 +55,8 @@ function App() {
           handleAddFlashCard(
             prompt('Enter the question:'),
             prompt('Write Answer of Question'),
-            prompt('Enter options, separated by commas').split(',')
+            prompt('Enter options, separated by commas').split(','),
+            prompt('Enter status (Learned, Want to Learn, Noted):')
           )
         }
       >

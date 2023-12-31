@@ -8,6 +8,7 @@ export default function FlashCard({ flashcard, onDelete, onEdit }) {
   const [editedQuestion, setEditedQuestion] = useState(flashcard.question);
   const [editedAnswer, setEditedAnswer] = useState(flashcard.answer);
   const [editedOptions, setEditedOptions] = useState(flashcard.options.join(','));
+  const [editedStatus, setEditedStatus] = useState(flashcard.status);
 
   const handleDelete = () => {
     onDelete(flashcard.id);
@@ -25,6 +26,7 @@ export default function FlashCard({ flashcard, onDelete, onEdit }) {
       question: editedQuestion,
       answer: editedAnswer,
       options: editedOptionsArray,
+      status: editedStatus,
     };
 
     onEdit(editedFlashcard);
@@ -65,6 +67,12 @@ export default function FlashCard({ flashcard, onDelete, onEdit }) {
               value={editedOptions}
               onChange={(e) => setEditedOptions(e.target.value)}
             />
+            <label>Status:</label>
+            <input
+              type="text"
+              value={editedStatus}
+              onChange={(e) => setEditedStatus(e.target.value)}
+            />
             <button onClick={handleSaveEdit}>Save</button>
             <button onClick={handleCancelEdit}>Cancel</button>
           </div>
@@ -78,6 +86,7 @@ export default function FlashCard({ flashcard, onDelete, onEdit }) {
                 </div>
               ))}
             </div>
+            <div>Status: {flashcard.status}</div>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleEdit}>Edit</button>
           </div>
