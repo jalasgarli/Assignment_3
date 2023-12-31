@@ -8,16 +8,14 @@ function App() {
   const [flashcards, setFlashCards] = useState([]);
 
   useEffect(() => {
-    // Fetch cards from the endpoint
     fetch('http://localhost:3000/cards')
       .then((response) => response.json())
       .then((data) => {
-        // Sort the cards by most recent modification
         const sortedCards = data.sort((a, b) => b.modifiedAt - a.modifiedAt);
         setFlashCards(sortedCards);
       })
       .catch((error) => console.error('Error fetching cards:', error));
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []); 
 
   const handleAddFlashCard = (Question, Answer, Options) => {
     const newFlashcard = {
@@ -25,7 +23,7 @@ function App() {
       question: Question,
       answer: Answer,
       options: Options,
-      modifiedAt: Date.now(), // Assuming you want to set the modification time when adding a new card
+      modifiedAt: Date.now(), 
     };
     setFlashCards([...flashcards, newFlashcard]);
   };
@@ -37,7 +35,9 @@ function App() {
 
   const handleEditFlashCard = (editedFlashcard) => {
     const updatedFlashcards = flashcards.map((flashcard) =>
-      flashcard.id === editedFlashcard.id ? editedFlashcard : flashcard
+      flashcard.id === editedFlashcard.id
+        ? { ...editedFlashcard, modifiedAt: Date.now() }
+        : flashcard
     );
     setFlashCards(updatedFlashcards);
   };
