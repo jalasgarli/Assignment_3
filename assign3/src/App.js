@@ -1,11 +1,14 @@
 // App.js
 
+// App.js
+
 import React, { useState, useEffect } from 'react';
 import ListOfFlashCards from './ListOfFlashCards';
 import './app.css';
 
 function App() {
   const [flashcards, setFlashCards] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3000/cards')
@@ -15,7 +18,7 @@ function App() {
         setFlashCards(sortedCards);
       })
       .catch((error) => console.error('Error fetching cards:', error));
-  }, []); 
+  }, []);
 
   const handleAddFlashCard = (Question, Answer, Options, status) => {
     const newFlashcard = {
@@ -27,6 +30,7 @@ function App() {
       status: status,
     };
     setFlashCards([...flashcards, newFlashcard]);
+    setSearchText('');
   };
 
   const handleDeleteFlashCard = (id) => {
@@ -41,12 +45,23 @@ function App() {
         : flashcard
     );
     setFlashCards(updatedFlashcards);
+    setSearchText('');
   };
 
   return (
     <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+      />
       <ListOfFlashCards
-        flashcards={flashcards}
+        flashcards={flashcards.filter(
+          (card) =>
+            card.question.toLowerCase().includes(searchText.toLowerCase()) ||
+            card.answer.toLowerCase().includes(searchText.toLowerCase())
+        )}
         onDelete={handleDeleteFlashCard}
         onEdit={handleEditFlashCard}
       />
