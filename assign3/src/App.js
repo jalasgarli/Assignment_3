@@ -1,7 +1,5 @@
 // App.js
 
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import ListOfFlashCards from './ListOfFlashCards';
 import './app.css';
@@ -71,7 +69,7 @@ function App() {
             prompt('Enter the question:'),
             prompt('Write Answer of Question'),
             prompt('Enter options, separated by commas').split(','),
-            prompt('Enter status (Learned, Want to Learn, Noted):')
+            prompt('Select status: Want to Learn, Learned, Noted')
           )
         }
       >

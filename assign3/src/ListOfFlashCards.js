@@ -1,5 +1,3 @@
-// ListOfFlashCards.js
-
 import React from 'react';
 import FlashCard from './FlashCard';
 
