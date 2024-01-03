@@ -1,7 +1,7 @@
 // App.js
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './components/MainPage';
 import ListOfFlashCards from './ListOfFlashCards';
 import FlashcardManagement from './FlashcardManagement';
@@ -36,6 +36,11 @@ function App() {
 
   return (
     <Router>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/flashcards">Flashcards</Link>
+        <Link to="/flashcards/manage">Manage Flashcards</Link>
+      </nav>
       <Routes>
         <Route
           path="/"
@@ -52,7 +57,6 @@ function App() {
 }
 
 export default App;
-
 
 
 
