@@ -1,20 +1,13 @@
 {
-    "flashCards": [
-      {
-        "id": 1,
-        "question": "What is your favorite color",
-        "answer": "Black"
-      },
-      {
-        "id": 2,
-        "question": "Who is your favorite singer",
-        "answer": "Nicki Minaj"
-      },
-      {
-        "id": 3,
-        "question": "What is your favorite song?",
-        "answer": "Hard White"
-      }
-    ]
-  }
-  
+  "cards": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "options": ["Berlin", "Madrid", "Rome"],
+      "modifiedAt": 1641253800000,
+      "status": null
+    }
+    
+  ]
+}

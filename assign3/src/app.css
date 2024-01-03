@@ -16,6 +16,8 @@ body {
     translateY(var(--translate-y, 0));
     transform-style: preserve-3d;
     transition: 150ms; 
+    padding: 20px;
+    margin: 20px;
 }
 
 
