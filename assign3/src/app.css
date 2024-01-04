@@ -1,5 +1,19 @@
+/* app.css */
+
 body {
     background-color: bisque;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 .card {
@@ -8,18 +22,16 @@ body {
     align-items: center;
     position: relative;
     border-radius: .25rem;
-    box-shadow: 0 0 5px 2px rgba(0,0,0,.3);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     background-color: white;
     height: 150px;
     width: 150px;
-    transform: perspective(1000px) rotateY(var(--rotate-y, 0))
-    translateY(var(--translate-y, 0));
+    transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
     transform-style: preserve-3d;
-    transition: 150ms; 
+    transition: 150ms;
     padding: 20px;
     margin: 20px;
 }
-
 
 .card .front,
 .card .back {
@@ -34,9 +46,33 @@ body {
 
 .card:hover {
     --translate-y: -2px;
-    box-shadow: 0 0 5px 2px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
 }
 
 .card.flip {
     --rotate-y: 180deg;
-} 
+}
+
+/* Additional styles for better navigation and button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add styles for links inside the card */
+.card a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}

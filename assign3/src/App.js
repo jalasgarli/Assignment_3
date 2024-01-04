@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './components/MainPage';
 import ListOfFlashCards from './ListOfFlashCards';
 import FlashcardManagement from './FlashcardManagement';
+import ContactMe from './components/ContactMe'; 
 import './app.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/flashcards">Flashcards</Link>
         <Link to="/flashcards/manage">Manage Flashcards</Link>
+        <Link to="/contact">Contact Me</Link> 
       </nav>
       <Routes>
         <Route
@@ -51,6 +53,7 @@ function App() {
           element={<ListOfFlashCards flashcards={flashcards} onDelete={handleDeleteFlashCard} onEdit={handleEditFlashCard} />}
         />
         <Route path="/flashcards/manage" element={<FlashcardManagement onAddFlashCard={handleAddFlashCard} />} />
+        <Route path="/contact" element={<ContactMe />} /> 
       </Routes>
     </Router>
   );
