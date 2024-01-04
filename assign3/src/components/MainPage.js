@@ -3,13 +3,12 @@ function MainPage() {
         <div>
             <section id = "about"> 
             <h3>Javid Alasgarli: </h3>
-            <p>I am a dedicated Computer Science student at ADA University, currently pursuing a Bachelor of Science degree.
-                My expertise lies in competitive programming,
-                where I have demonstrated a strong ability to solve complex algorithmic problems
-                and consistently rank in the top percentiles in regional coding competitions.
-                Additionally, I am proficient in web development, excelling in both frontend and backend technologies.
-                I have successfully designed and developed multiple functional and visually appealing websites using languages such as HTML, CSS, JavaScript.
-                I also developed backend systems and microservices. At the moment I am CTO of CodeAny (codeany.org).
+            <p>I'm a final year computer science student at ADA University, and I had the opportunity to be an exchange student 
+                at Texas A&M International University. As a backend developer intern at the Ministry of Finance, 
+                I gained practical experience and applied my skills in a real-world setting. 
+                Currently, I'm working on my final year project, which involves creating a final exam scheduler for ADA University.
+             This project not only integrates my academic knowledge but also addresses a practical need within the university.
+             I'm excited about contributing to the optimization of the examination scheduling process through innovative technology.
             </p>
             </section>
 
@@ -24,7 +23,7 @@ function MainPage() {
                     <a href="https://jalasgarli.github.io/Web_assignment2/">Assignment 2</a>
                 </div>
                 <div className="project">
-                    <a href=""></a>
+                    <a href="https://youtu.be/rD3HJQBBSw0">YouTube Link</a>
                 </div>
             </section>
         </div>
