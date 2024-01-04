@@ -11,16 +11,18 @@ Setting Up the Application
 
 Follow the steps below to set up and run the application:
 
-1. Clone the Repository
+# 1. Clone the Repository
 bash
 Copy code
 https://github.com/jalasgarli/Assignment_3.git
 cd flashcard-management-app
-3. Install Dependencies
+
+# 2. Install Dependencies
 bash
 Copy code
 npm install
-4. Start the JSON-Server
+
+# 3 . Start the JSON-Server
 The Flashcard Management App uses JSON-Server to simulate a backend. Follow these steps to start the JSON-Server:
 
 bash
@@ -28,31 +30,31 @@ Copy code
 npm run json-server
 This will start the JSON-Server on http://localhost:3000.
 
-4. Start the React App
+# 4. Start the React App
 Open a new terminal window and run the following command to start the React app:
 
 bash
 Copy code
 npm start
-The React app will be available at http://localhost:3001.
+The React app will be available at http://localhost:3000.
 
 Using the Application
 
 Once the JSON-Server and React app are running, you can access the Flashcard Management App through your browser.
 
-Home Page
+# Home Page
 The home page provides an overview of the application and links to various sections.
 
-Flashcards Section
+# Flashcards Section
 Navigate to the "Flashcards" section to view and manage your flashcards. You can add new flashcards, edit existing ones, and delete them.
 
-Flashcard Management Section
+# Flashcard Management Section
 The "Flashcard Management" section allows you to add new flashcards to your collection.
 
-Contact Me Section
+# Contact Me Section
 Visit the "Contact Me" section to send a message or provide feedback.
 
-Additional Documentation
+# Additional Documentation
 
 For additional details on the application and its components, refer to the Documentation file.
 
